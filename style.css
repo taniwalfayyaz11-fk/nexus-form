@@ -1,0 +1,266 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #060b11;
+}
+
+h1 {
+  color: white;
+  font-size: 60px;
+  font-family: "Orbitron", sans-serif;
+}
+h1 span {
+  color: #b0f647;
+  font-size: 71px;
+  font-weight: 900;
+}
+
+.logo p {
+  color: #84949c;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #84949c;
+  max-width: 420px;
+  bottom: 184px;
+}
+
+.Flex {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #71818a;
+  font-weight: 600;
+  transform: translateY(100px);
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+.row .line {
+  flex: 1;
+  border-bottom: 1px solid #26363d;
+}
+
+.flc {
+  transform: translateY(90px);
+  display: flex;
+  gap: 196px;
+  color: white;
+  font-size: 12px;
+  color: #84949c;
+}
+.flc h2 {
+  font-weight: "ROBOTO", sans-serif;
+}
+h3 {
+  transform: translateY(90px);
+  font-size: 35px;
+  font-family: "Orbitron", sans-serif;
+  color: #84949c;
+}
+
+.first {
+  padding: 82px 170px;
+}
+.second {
+  background: #0a1922;
+  transform: translateY(50px);
+  padding: 29px 40px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #263840;
+}
+.flx {
+  display: flex;
+  border-bottom: 2px solid #263840;
+  width: 100%;
+  max-width: 380px;
+  gap: 10px;
+}
+nav ul {
+  display: flex;
+  gap: 23px;
+  list-style: none;
+  transform: translateY(4px);
+}
+.second span {
+  color: #b0f647;
+}
+.calsign {
+  display: flex;
+  flex-direction: column;
+}
+.second li {
+  color: #84949c;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  cursor: pointer;
+}
+.second h4 {
+  color: #e4edf2;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+input {
+  width: 100%;
+  max-width: 335px;
+  padding: 12px 14px;
+  background: #050b10;
+  border: 2px solid #263840;
+  color: #84949c;
+  font-size: 16px;
+  transform: translateY(5px);
+}
+.second p {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #84949c;
+  letter-spacing: 0.3px;
+}
+.second label {
+  color: #84949c;
+  font-family: sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+}
+
+.puts {
+  transform: translateY(37px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+}
+
+.password {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(73px);
+}
+
+.conpassword {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(73px);
+  z-index: 1;
+}
+
+input:focus {
+  outline: none;
+}
+
+.password input {
+  z-index: 1;
+}
+.password img {
+  width: 22px;
+  z-index: 2;
+  transform: translateY(-31px);
+  margin-left: 330px;
+}
+
+.conpassword img {
+  width: 22px;
+  z-index: 2;
+  transform: translateY(-31px);
+  margin-left: 330px;
+}
+
+.hero {
+  display: flex;
+}
+.second h6 {
+  font-size: 15px;
+  color: #84949c;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  letter-spacing: 1.1px;
+  font-family: sans-serif;
+  transform: translateY(110px);
+}
+
+.password p {
+  transform: translateY(-15px);
+}
+
+h6 span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 12px 22px;
+  width: 100%;
+  max-width: 325px;
+  background: #b0f647;
+  display: flex;
+  justify-content: center;
+  transform: translateY(110px);
+}
+
+.btn a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  color: #263840;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transform: translateY(80px);
+}
+
+.terms input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  margin: 0;
+  flex: 0 0 17px;
+  accent-color: #b0f647;
+  cursor: pointer;
+}
+
+.terms label {
+  font-size: 11px;
+  color: #84949c;
+  line-height: 1.6;
+  transform: translateY(4px);
+}
+
+.terms a {
+  text-decoration: underline;
+  color: #b0f647;
+}

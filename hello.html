@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Registration Form</title>
+
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #dbeafe, #e0f2fe, #f0fdf4);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 15px;
+        color: #1e293b;
+      }
+
+      /* Form Container */
+      .form-container {
+        background: #ffffff;
+        width: 100%;
+        max-width: 650px;
+        padding: 40px;
+        border-radius: 18px;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+        animation: fadeIn 0.6s ease;
+      }
+
+      /* Form Header */
+      .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .form-header h1 {
+        font-size: 28px;
+        color: #0f172a;
+        margin-bottom: 10px;
+      }
+
+      .form-header p {
+        color: #64748b;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* Form Layout */
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 22px;
+      }
+
+      .form-group label,
+      .group-title {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 9px;
+        color: #334155;
+      }
+
+      /* Input Fields */
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="file"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 13px 15px;
+        border: 1px solid #cbd5e1;
+        border-radius: 9px;
+        font-size: 14px;
+        font-family: inherit;
+        background: #f8fafc;
+        color: #334155;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      /* Focus Effects */
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #2563eb;
+        background: #ffffff;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #94a3b8;
+      }
+
+      /* Readonly and Disabled */
+      input:read-only {
+        background: #f1f5f9;
+        color: #64748b;
+      }
+
+      input:disabled {
+        background: #e2e8f0;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+
+      /* Radio and Checkbox Groups */
+      .options-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        background: #f8fafc;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .option:hover {
+        background: #eff6ff;
+        border-color: #93c5fd;
+      }
+
+      .option input {
+        width: 16px;
+        height: 16px;
+        accent-color: #2563eb;
+        cursor: pointer;
+      }
+
+      .option label {
+        font-size: 13px;
+        font-weight: 500;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      /* File Input */
+      input[type="file"] {
+        cursor: pointer;
+        background: #f8fafc;
+      }
+
+      input[type="file"]::file-selector-button {
+        background: #dbeafe;
+        border: none;
+        padding: 9px 14px;
+        border-radius: 6px;
+        color: #1d4ed8;
+        font-weight: 600;
+        cursor: pointer;
+        margin-right: 12px;
+      }
+
+      /* Select */
+      select {
+        cursor: pointer;
+      }
+
+      /* Textarea */
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      /* Buttons */
+      .button-group {
+        display: flex;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .btn {
+        padding: 14px 20px;
+        border: none;
+        border-radius: 9px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-submit {
+        flex: 2;
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: white;
+      }
+
+      .btn-submit:hover {
+        background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+      }
+
+      .btn-reset {
+        flex: 1;
+        background: #f1f5f9;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+      }
+
+      .btn-reset:hover {
+        background: #e2e8f0;
+      }
+
+      .btn-register {
+        flex: 1;
+        background: #dcfce7;
+        color: #15803d;
+      }
+
+      .btn-register:hover {
+        background: #bbf7d0;
+      }
+
+      /* Divider */
+      .divider {
+        border: none;
+        border-top: 1px solid #e2e8f0;
+        margin: 25px 0;
+      }
+
+      /* Footer */
+      .form-footer {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 13px;
+        color: #64748b;
+      }
+
+      /* Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        .form-container {
+          padding: 25px 20px;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .form-header h1 {
+          font-size: 24px;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form-container">
+      <!-- Header -->
+      <div class="form-header">
+        <h1>Create Your Account</h1>
+        <p>Fill in the information below to complete your registration.</p>
+      </div>
+
+      <!-- Registration Form -->
+      <form action="#" method="get">
+        <!-- Name and Password -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" value="Ali" readonly />
+          </div>
+
+          <div class="form-group">
+            <label for="pass">Password</label>
+            <input
+              type="password"
+              id="pass"
+              name="password"
+              placeholder="Enter your password"
+              minlength="8"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            disabled
+          />
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Gender -->
+        <div class="form-group">
+          <p class="group-title">Select Your Gender</p>
+
+          <div class="options-group">
+            <div class="option">
+              <input type="radio" id="male" name="gender" value="male" />
+              <label for="male">Male</label>
+            </div>
+
+            <div class="option">
+              <input type="radio" id="female" name="gender" value="female" />
+              <label for="female">Female</label>
+            </div>
+
+            <div class="option">
+              <input type="radio" id="other" name="gender" value="other" />
+              <label for="other">Other</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="form-group">
+          <p class="group-title">Languages You Speak</p>
+
+          <div class="options-group">
+            <div class="option">
+              <input
+                type="checkbox"
+                id="pashto"
+                name="language"
+                value="pashto"
+              />
+              <label for="pashto">Pashto</label>
+            </div>
+
+            <div class="option">
+              <input
+                type="checkbox"
+                id="english"
+                name="language"
+                value="english"
+              />
+              <label for="english">English</label>
+            </div>
+
+            <div class="option">
+              <input type="checkbox" id="dari" name="language" value="dari" />
+              <label for="dari">Dari</label>
+            </div>
+
+            <div class="option">
+              <input type="checkbox" id="urdu" name="language" value="urdu" />
+              <label for="urdu">Urdu</label>
+            </div>
+
+            <div class="option">
+              <input
+                type="checkbox"
+                id="arabic"
+                name="language"
+                value="arabic"
+              />
+              <label for="arabic">Arabic</label>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <!-- Country -->
+        <div class="form-group">
+          <label for="country">Select Your Country</label>
+
+          <select name="country" id="country" required>
+            <option value="" selected disabled>Choose your country</option>
+
+            <optgroup label="Asian Countries">
+              <option value="Afghanistan">Afghanistan</option>
+              <option value="Pakistan">Pakistan</option>
+              <option value="India">India</option>
+              <option value="UAE">United Arab Emirates</option>
+              <option value="Turkey">Turkey</option>
+            </optgroup>
+
+            <optgroup label="European Countries">
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+              <option value="Italy">Italy</option>
+              <option value="Spain">Spain</option>
+              <option value="UK">United Kingdom</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- File Upload -->
+        <div class="form-group">
+          <label for="documents">Upload Your Documents</label>
+
+          <input type="file" id="documents" name="documents" multiple />
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="message">Your Message</label>
+
+          <textarea
+            id="message"
+            name="message"
+            cols="30"
+            rows="5"
+            placeholder="Write your message here..."
+          ></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+          <input class="btn btn-register" type="button" value="Register" />
+
+          <input class="btn btn-submit" type="submit" value="Submit Form" />
+
+          <input class="btn btn-reset" type="reset" value="Reset" />
+        </div>
+      </form>
+
+      <!-- Footer -->
+      <div class="form-footer">
+        <p>© 2026 Registration Form. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>
